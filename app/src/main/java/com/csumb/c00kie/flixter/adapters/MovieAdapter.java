@@ -1,6 +1,8 @@
 package com.csumb.c00kie.flixter.adapters;
 
 import android.content.Context;
+import android.content.res.Configuration;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,6 +19,7 @@ import com.csumb.c00kie.flixter.models.Movie;
 import java.util.List;
 
 public class MovieAdapter extends  RecyclerView.Adapter<MovieAdapter.ViewHolder>{
+    public static final String TAG = "MovieAdapter";
     Context context;
     List<Movie> movies;
 
@@ -28,12 +31,14 @@ public class MovieAdapter extends  RecyclerView.Adapter<MovieAdapter.ViewHolder>
     @NonNull
     @Override
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
+        Log.d(TAG, "onCreateViewHolder");
         View movieView = LayoutInflater.from(context).inflate(R.layout.item_movie, parent, false);
         return new ViewHolder(movieView);
     }
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
+        Log.d(TAG, "onBindViewHolder " + position);
         Movie movie = this.movies.get(position);
         holder.bind(movie);
     }
@@ -60,7 +65,14 @@ public class MovieAdapter extends  RecyclerView.Adapter<MovieAdapter.ViewHolder>
         public void bind(Movie movie) {
             tvTitle.setText(movie.getTitle());
             tvOverview.setText(movie.getOverview());
-            Glide.with(context).load(movie.getPoseterPath()).into(ivPoster);
+            String imgUrl;
+            if(context.getResources().getConfiguration().orientation == Configuration.ORIENTATION_LANDSCAPE){
+                imgUrl = movie.getBackdropPath();
+            } else {
+                imgUrl = movie.getPoseterPath();
+            }
+            Glide.with(context).load(imgUrl).into(ivPoster);
+
         }
     }
 }
