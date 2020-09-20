@@ -20,9 +20,8 @@ Flixter is an app that allows users to browse movies from the [The Movie Databas
 - [ ] (2pts) For popular movies (i.e. a movie voted for more than 5 stars), the full backdrop image is displayed. Otherwise, a poster image, the movie title, and overview is listed. Use Heterogenous RecyclerViews and use different ViewHolder layout files for popular movies and less popular ones.
 
 ### App Walkthough GIF
-`TODO://` Add the URL to your animated app walkthough `gif` in the image tag below, `YOUR_GIF_URL_HERE`. Make sure the gif actually renders and animates when viewing this README. (🚫 Remove this paragraph after after adding gif)
 
-<img src='Flix.gif' title='Flix Gif' width='' alt='Flix Gif' />
+<img src='flix.gif' title='Flix Gif' width='' alt='Flix Gif' />
 
 ### Notes
 Had difficulties getting my logcat to display messages when running the app on my phone, so I had to switch to a virtual device. Also had issues with the styling getting to work and making it look good.
