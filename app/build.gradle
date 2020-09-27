@@ -8,12 +8,15 @@ android {
     buildToolsVersion "30.0.2"
 
     defaultConfig {
+        buildConfigField("String", "YOUTUBE_API_KEY", apikeyProperties['YOUTUBE_API_KEY'])
+        buildConfigField("String", "MOVIE_API_KEY", apikeyProperties['MOVIE_API_KEY'])
+
         applicationId "com.csumb.c00kie.flixter"
         minSdkVersion 23
         targetSdkVersion 29
         versionCode 1
         versionName "1.0"
-        buildConfigField("String", "YOUTUBE_API_KEY", apikeyProperties['YOUTUBE_API_KEY'])
+
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 

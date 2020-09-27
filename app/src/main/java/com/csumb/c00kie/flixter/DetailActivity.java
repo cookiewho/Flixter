@@ -19,9 +19,11 @@ import org.parceler.Parcels;
 
 import okhttp3.Headers;
 
+import static com.csumb.c00kie.flixter.BuildConfig.YOUTUBE_API_KEY;
+
 public class DetailActivity extends YouTubeBaseActivity {
 
-    private static final String API_KEY = "AIzaSyDeW4FnCR5dqUzmRfXDL5g5lUkskaZdO20";
+    private static final String API_KEY = YOUTUBE_API_KEY;
     public static final String VIDEOS_URL ="https://api.themoviedb.org/3/movie/%d/videos?api_key=a07e22bc18f5cb106bfe4cc1f83ad8ed";
 
     TextView tvTitle;
@@ -46,6 +48,7 @@ public class DetailActivity extends YouTubeBaseActivity {
 
 
         AsyncHttpClient client = new AsyncHttpClient();
+        Log.d("DETAILACTIVITY", String.format(VIDEOS_URL, movie.getMovieId()));
         client.get(String.format(VIDEOS_URL, movie.getMovieId()), new JsonHttpResponseHandler() {
             @Override
             public void onSuccess(int statusCode, Headers headers, JSON json) {
@@ -80,7 +83,7 @@ public class DetailActivity extends YouTubeBaseActivity {
 
             @Override
             public void onInitializationFailure(YouTubePlayer.Provider provider, YouTubeInitializationResult youTubeInitializationResult) {
-                Log.d("DETAILACTIVITY", "onSuccess");
+                Log.d("DETAILACTIVITY", "onFailure");
             }
         });
     }
