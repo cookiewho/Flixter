@@ -9,10 +9,11 @@ import android.widget.TextView;
 import com.csumb.c00kie.flixter.models.Movie;
 
 import org.parceler.Parcels;
+import static com.csumb.c00kie.flixter.BuildConfig.YOUTUBE_API_KEY;
 
 public class DetailActivity extends AppCompatActivity {
 
-    private static final String YOUTUBE_API_KEY ="AIzaSyDeW4FnCR5dqUzmRfXDL5g5lUkskaZdO20";
+    private static final String API_KEY = YOUTUBE_API_KEY;
 
     TextView tvTitle;
     TextView tvOverview;
