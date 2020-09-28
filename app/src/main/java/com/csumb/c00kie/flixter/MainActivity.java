@@ -1,11 +1,11 @@
 package com.csumb.c00kie.flixter;
 
+import android.os.Bundle;
+import android.util.Log;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
-
-import android.os.Bundle;
-import android.util.Log;
 
 import com.codepath.asynchttpclient.AsyncHttpClient;
 import com.codepath.asynchttpclient.callback.JsonHttpResponseHandler;
@@ -54,7 +54,6 @@ public class MainActivity extends AppCompatActivity {
                 } catch (JSONException e){
                     Log.e(TAG, "Hit json exception", e);
                 }
-
             }
 
             @Override

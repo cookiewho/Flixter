@@ -59,7 +59,7 @@ public class DetailActivity extends YouTubeBaseActivity {
                     }
                     String youtubeKey = results.getJSONObject(0).getString("key");
                     Log.d("DETAILACTIVITY", youtubeKey);
-                    initializeYoutube(youtubeKey);
+                    initializeYoutube(youtubeKey, movie.getRating());
                 }catch (JSONException e){
                     Log.e("DETAILACTIVITY", "ERROR");
                 }
@@ -73,12 +73,16 @@ public class DetailActivity extends YouTubeBaseActivity {
 
     }
 
-    private void initializeYoutube(final String youtubeKey) {
+    private void initializeYoutube(final String youtubeKey, final double rating) {
         youTubePlayerView.initialize(API_KEY, new YouTubePlayer.OnInitializedListener() {
             @Override
             public void onInitializationSuccess(YouTubePlayer.Provider provider, YouTubePlayer youTubePlayer, boolean b) {
                 Log.d("DETAILACTIVITY", "onSuccess");
-                youTubePlayer.cueVideo(youtubeKey);
+                if (rating >= 5.0){
+                    youTubePlayer.loadVideo(youtubeKey);
+                }else {
+                    youTubePlayer.cueVideo(youtubeKey);
+                }
             }
 
             @Override
